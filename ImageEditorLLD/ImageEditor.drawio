@@ -1,0 +1,49 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.7.5 Chrome/126.0.6478.183 Electron/31.3.0 Safari/537.36" version="24.7.5">
+  <diagram name="Page-1" id="Bd_kJpsL3gcHtg1m4X6o">
+    <mxGraphModel dx="882" dy="568" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" value="Image&#xa;--&#xa;- name: String&#xa;- metadata: String&#xa;- content: String&#xa;--&#xa;+ Getters &amp; Setters" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=1;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+          <mxGeometry x="500" y="40" width="160" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="3" value="ImageEditor&#xa;--&#xa;- image: Image&#xa;--&#xa;+ clickImage(): void&#xa;+ cropImage(): void&#xa;+ applyFilter(filter: Filter): void&#xa;+ save(repo: ImageRepository): void" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=1;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="240" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="4" value="&lt;&lt;interface&gt;&gt;&#xa;Filter&#xa;--&#xa;+ apply(image: Image): void" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=1;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+          <mxGeometry x="80" y="320" width="160" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="5" value="SharpenFilter&#xa;--&#xa;+ apply(image): void" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=1;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+          <mxGeometry x="10" y="440" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="6" value="ColorFilter&#xa;--&#xa;+ apply(image): void" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=1;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+          <mxGeometry x="110" y="450" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="7" value="&lt;&lt;interface&gt;&gt;&#xa;ImageRepository&#xa;--&#xa;+ save(image: Image): void" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=1;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+          <mxGeometry x="480" y="320" width="180" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="8" value="SqlImageRepository&#xa;--&#xa;+ save(image): void" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=1;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+          <mxGeometry x="490" y="440" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="9" value="has-a" style="endArrow=block;endFill=0;html=1;exitX=1;exitY=0.25;entryX=0;entryY=0.5;" edge="1" parent="1" source="3" target="2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="10" value="" style="endArrow=open;dashed=1;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="3" target="4">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="11" value="" style="endArrow=open;dashed=1;html=1;exitX=0.75;exitY=1;entryX=0;entryY=0.5;" edge="1" parent="1" source="3" target="7">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="12" value="" style="endArrow=block;dashed=1;endFill=0;html=1;exitX=0.5;exitY=0;entryX=0.25;entryY=1;" edge="1" parent="1" source="5" target="4">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="13" value="" style="endArrow=block;dashed=1;endFill=0;html=1;exitX=0.5;exitY=0;entryX=0.75;entryY=1;" edge="1" parent="1" source="6" target="4">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="14" value="" style="endArrow=block;dashed=1;endFill=0;html=1;exitX=0.5;exitY=0;entryX=0.5;entryY=1;" edge="1" parent="1" source="8" target="7">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
