@@ -2,20 +2,20 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        int[] data = {12, 11, 13, 5, 6, 7};
+        int[] data1 = {34, 7, 23, 32, 5, 62};
 
-        // --- Testing Randomized QuickSort ---
-        SortHandler qsh = new SortHandler(new QuickSortStrategy(true));
-        System.out.println("Original: " + Arrays.toString(data));
+        // Use Randomized QuickSort
+        SortHandler handler = new SortHandler(new QuickSortStrategy(true));
+        System.out.println("Original: " + Arrays.toString(data1));
 
-        qsh.sort(data, "asc");
-        System.out.println("QuickSort (Asc): " + Arrays.toString(data));
+        handler.sort(data1, "ascending");
+        System.out.println("QuickSort (Randomized): " + Arrays.toString(data1));
 
-        // --- Testing In-Place MergeSort ---
-        int[] data2 = {12, 11, 13, 5, 6, 7}; // fresh array
-        SortHandler msh = new SortHandler(new MergeSortStrategy(true));
+        // Switch to In-Place MergeSort at runtime
+        int[] data2 = {34, 7, 23, 32, 5, 62};
+        handler.setStrategy(new MergeSortStrategy(true));
 
-        msh.sort(data2, "desc");
-        System.out.println("MergeSort (Desc): " + Arrays.toString(data2));
+        handler.sort(data2, "descending");
+        System.out.println("MergeSort (In-Place Desc): " + Arrays.toString(data2));
     }
 }

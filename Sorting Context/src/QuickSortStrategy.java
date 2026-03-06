@@ -8,35 +8,33 @@ public class QuickSortStrategy implements SortingStrategy {
     }
 
     @Override
-    public void sort(int[] array) {
-        quickSort(array, 0, array.length - 1, "asc");
+    public void sort(int[] inputArray) {
+        sort(inputArray, "ascending");
     }
 
     @Override
-    public void sort(int[] array, String order) {
-        quickSort(array, 0, array.length - 1, order.toLowerCase());
+    public void sort(int[] inputArray, String order) {
+        quickSort(inputArray, 0, inputArray.length - 1, order.toLowerCase());
     }
 
     private void quickSort(int[] arr, int low, int high, String order) {
         if (low < high) {
-            int pivotIndex = partition(arr, low, high, order);
-            quickSort(arr, low, pivotIndex - 1, order);
-            quickSort(arr, pivotIndex + 1, high, order);
+            int pi = partition(arr, low, high, order);
+            quickSort(arr, low, pi - 1, order);
+            quickSort(arr, pi + 1, high, order);
         }
     }
 
     private int partition(int[] arr, int low, int high, String order) {
         if (isRandomized) {
-            randomizePivot(arr, low, high);
+            int randomPivot = new Random().nextInt(high - low) + low;
+            swap(arr, randomPivot, high);
         }
 
         int pivot = arr[high];
         int i = (low - 1);
-
         for (int j = low; j < high; j++) {
-            // Logic for Ascending vs Descending
-            boolean condition = order.equals("asc") ? (arr[j] <= pivot) : (arr[j] >= pivot);
-
+            boolean condition = order.equals("descending") ? arr[j] > pivot : arr[j] < pivot;
             if (condition) {
                 i++;
                 swap(arr, i, j);
@@ -44,12 +42,6 @@ public class QuickSortStrategy implements SortingStrategy {
         }
         swap(arr, i + 1, high);
         return i + 1;
-    }
-
-    private void randomizePivot(int[] arr, int low, int high) {
-        Random rand = new Random();
-        int pivotIndex = rand.nextInt(high - low) + low;
-        swap(arr, pivotIndex, high); // Move random pivot to end
     }
 
     private void swap(int[] arr, int i, int j) {

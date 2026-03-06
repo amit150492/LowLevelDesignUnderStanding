@@ -1,4 +1,4 @@
 public interface SortingStrategy {
-    void sort(int[] array);
-    void sort(int[] array, String order);
+    void sort(int[] inputArray);
+    void sort(int[] inputArray, String order);
 }

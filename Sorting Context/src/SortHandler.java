@@ -1,7 +1,7 @@
 public class SortHandler {
     private SortingStrategy sortingStrategy;
 
-    // Constructor handles the "Pluggable" requirement
+    // Requirement: Initialize during Object creation
     public SortHandler(SortingStrategy sortingStrategy) {
         this.sortingStrategy = sortingStrategy;
     }
@@ -10,11 +10,11 @@ public class SortHandler {
         this.sortingStrategy = sortingStrategy;
     }
 
-    public void sort(int[] array) {
-        sortingStrategy.sort(array);
+    public void sort(int[] inputArray) {
+        sortingStrategy.sort(inputArray);
     }
 
-    public void sort(int[] array, String order) {
-        sortingStrategy.sort(array, order);
+    public void sort(int[] inputArray, String order) {
+        sortingStrategy.sort(inputArray, order);
     }
 }
